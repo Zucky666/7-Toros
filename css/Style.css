@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    background-color: bisque;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*fuente de letras*/
+
+@font-face {
+    font-family: tourney;
+    src: url(/templates/fuentes/Tourney-BlackItalic.ttf);
+}
+
+@font-face {
+    font-family: Allanura;
+    src: url(/templates/fuentes/Allura-Regular.ttf);
+}
+
+@font-face {
+    font-family: Cinzel;
+    src: url(/templates/fuentes/Cinzel-VariableFont_wght.ttf);
+}
+
+
+/*inicio cabecera*/
+
+.cabecera {
+    background-color: bisque;
+    width: 85%;
+    height: 50px;
+    padding: 0 40px;
+}
+
+.cabecera_link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: Tourney;
+    font-size: 50px;
+    font-weight: 600px;
+}
+
+.cabecera_img {
+    object-fit: cover;
+    height: 90%;
+    margin-right: 10px;
+}
+
+
+/*NAVEGACION*/
+
+.navegacion {
+    background-color: #8B0000;
+    width: 85%;
+    height: 60px;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navegacion a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px 50px;
+}
+
+
+/*le da color al momento de pasar el cursor sobre el menu de navegacion*/
+
+.navegacion a:hover {
+    color: black;
+    background-color: white;
+}
+
+
+/*INICIO BANNER*/
+
+.banner {
+    background-image: url(../img/BANNER.jpg);
+    background-position: center;
+    width: 85%;
+    height: calc(100vh - 110px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+/*SECCION DE INICIO*/
+
+.inicio {
+    background: bisque;
+    width: 85%;
+    height: 70vh;
+}
+
+.inicio h1 {
+    font-family: Allanura;
+    font-size: 45px;
+    color: crimson;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.inicio h2 {
+    font-family: Cinzel;
+    font-size: 45px;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.inicio h5 {
+    font-family: Cinzel;
+    font-size: 45px;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+/*seccion del horario*/
+
+.horario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dia {
+    background-color: red;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.nombre-dia {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.horas {
+    display: block;
+    font-size: 1em;
+}
+
+/*seccion NOSOTROS*/
+.NOSOTROS {
+    background-color: bisque;
+    width: 85%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulos {
+    background-color: aqua;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.titulos h1 {
+    text-align: center;
+    font-size: 30px;
+    font-family: Cinzel;
+}
+
+.titulos p {
+    text-align: justify;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.mision {
+    background-color: #8B0000;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.mision h1 {
+    text-align: center;
+    font-size: 30px;
+    font-family: Cinzel;
+    text-decoration: underline;
+}
+
+.mision p {
+    text-align: justify;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.vision {
+    background-color: brown;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.vision h1 {
+    text-align: center;
+    font-size: 30px;
+    font-family: Cinzel;
+    text-decoration: underline;
+}
+
+.vision p {
+    text-align: justify;
+    padding: 10px;
+    font-size: 20px;
+}
+
+/*slider titulo*/
+.titulo-ambiente {
+    font-family: Cinzel;
+    color: crimson;
+    font-size: 50px;
+    text-align: center;
+}
+
+/*SLIDER SECCION*/
+.slider {
+    width: 1000px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.slides {
+    width: 700%;
+    height: 100%;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 14.2857%;
+    transition: 2s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid #40D3DC;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background: #40D3DC;
+}
+
+#radio1:checked~.first {
+    margin-left: 0;
+}
+
+#radio2:checked~.first {
+    margin-left: -14.2857%;
+}
+
+#radio3:checked~.first {
+    margin-left: -28.5714%;
+}
+
+#radio4:checked~.first {
+    margin-left: -42.8571%;
+}
+
+#radio5:checked~.first {
+    margin-left: -57.1429%;
+}
+
+#radio6:checked~.first {
+    margin-left: -71.4286%;
+}
+
+#radio7:checked~.first {
+    margin-left: -85.7143%;
+}
+
+.navigation-auto {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+.navigation-auto div {
+    border: 2px solid #40D3DC;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+}
+
+/*seccion 2 MENU DE YESSENIA*/
+.menu {
+    max-width: 85%;
+    margin: 10px;
+}
+
+.menu h1 {
+    background-color: bisque;
+    text-align: center;
+    font-size: 40px;
+    font-family: Allanura;
+    color: crimson;
+}
+
+.menu h2 {
+    text-align: center;
+    padding: 5px;
+    font-size: 30px;
+    font-family: tourney;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+}
+
+.menu-item {
+    background-color: white;
+    padding: 1.5em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    /* Fijar altura */
+    object-fit: cover;
+    /* Recortar para ajustarse al contenedor */
+    border-radius: 8px 8px 0 0;
+}
+
+.menu h3 {
+    margin-top: 0.5em;
+    color: #8B0000;
+}
+
+.menu p {
+    margin: 0.5em 0;
+}
+
+/*inicio de la seccion CONTACTO*/
+
+.CONTACTO {
+    background-color: bisque;
+    width: 85%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.izquierda {
+    width: 25%;
+}
+
+.derecha {
+    width: 60%;
+}
+
+
+/*tamaño tipo y color de fuente de los titulos de la seccion 3*/
+.CONTACTO h3 {
+    font-family: Allanura;
+    font-size: 45px;
+    color: crimson;
+}
+
+.redes-sociales a img {
+    object-fit: cover;
+    height: 50px;
+}
+
+/*SECCION DEL FOOTER*/
+.section-footer {
+    background-color: bisque;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    font-size: 25px;
+    display: flex;
+}
