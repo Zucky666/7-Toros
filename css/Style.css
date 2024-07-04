@@ -1,22 +1,26 @@
+/* Estilos globales */
+/* Estilos globales */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-family: sans-serif;
+}
+
 .main {
     background-color: bisque;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-
-/*fuente de letras*/
-
+/* Fuente de letras */
 @font-face {
     font-family: tourney;
     src: url(/templates/fuentes/Tourney-BlackItalic.ttf);
@@ -32,72 +36,72 @@
     src: url(/templates/fuentes/Cinzel-VariableFont_wght.ttf);
 }
 
-
-/*inicio cabecera*/
-
+/* Cabecera */
 .cabecera {
     background-color: bisque;
     width: 85%;
     height: 50px;
-    padding: 0 40px;
+    padding: 0 20px;
+    /* Ajuste de padding */
+    display: flex;
+    justify-content: space-between;
+    /* Cambiado para distribuir el contenido */
+    align-items: center;
 }
 
 .cabecera_link {
-    width: 100%;
-    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    font-family: Tourney;
-    font-size: 50px;
-    font-weight: 600px;
+    font-family: tourney;
+    font-size: 24px;
+    /* Ajuste de tamaño */
+    font-weight: 600;
 }
 
 .cabecera_img {
     object-fit: cover;
     height: 90%;
+    max-height: 40px;
+    /* Limitar la altura máxima */
     margin-right: 10px;
 }
 
-
-/*NAVEGACION*/
-
+/* Navegación */
 .navegacion {
     background-color: #8B0000;
     width: 85%;
     height: 60px;
-    padding: 0 40px;
+    padding: 0 20px;
+    /* Ajuste de padding */
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
+    /* Cambiado para distribuir el contenido */
     align-items: center;
 }
 
 .navegacion a {
     text-decoration: none;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
+    /* Ajuste de tamaño */
     font-weight: 600;
-    padding: 20px 50px;
+    padding: 10px 20px;
+    /* Ajuste de padding */
 }
-
-
-/*le da color al momento de pasar el cursor sobre el menu de navegacion*/
 
 .navegacion a:hover {
     color: black;
     background-color: white;
 }
 
-
-/*INICIO BANNER*/
-
+/* Banner */
 .banner {
     background-image: url(../img/BANNER.jpg);
     background-position: center;
+    background-size: cover;
+    /* Ajuste para cubrir toda el área */
     width: 85%;
     height: calc(100vh - 110px);
     display: flex;
@@ -105,44 +109,91 @@
     justify-content: center;
     align-items: center;
     color: white;
+    text-align: center;
 }
 
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
 
-/*SECCION DE INICIO*/
+    .cabecera,
+    .navegacion,
+    .banner {
+        width: 100%;
+        padding: 0 10px;
+    }
 
+    .cabecera_link {
+        font-size: 20px;
+    }
+
+    .cabecera_img {
+        max-height: 30px;
+        /* Reducir la altura máxima para pantallas más pequeñas */
+    }
+
+    .navegacion a {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .banner {
+        height: 50vh;
+        /* Ajuste de altura para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .cabecera_link {
+        font-size: 18px;
+    }
+
+    .cabecera_img {
+        max-height: 20px;
+        /* Reducir la altura máxima para pantallas más pequeñas */
+    }
+
+    .navegacion a {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .banner {
+        height: 40vh;
+        /* Ajuste de altura para pantallas más pequeñas */
+    }
+}
+
+/* SECCION DE INICIO */
 .inicio {
     background: bisque;
     width: 85%;
     height: 70vh;
+    margin: 0 auto;
+    /* Centramos el contenido */
 }
 
-.inicio h1 {
-    font-family: Allanura;
+.inicio h1,
+.inicio h2,
+.inicio h5 {
     font-size: 45px;
-    color: crimson;
     text-align: center;
     padding-top: 20px;
 }
 
-.inicio h2 {
-    font-family: Cinzel;
-    font-size: 45px;
-    color: black;
-    text-align: center;
-    padding-top: 10px;
+.inicio h1 {
+    font-family: Allanura;
+    color: crimson;
 }
 
+.inicio h2,
 .inicio h5 {
     font-family: Cinzel;
-    font-size: 45px;
     color: black;
-    text-align: center;
-    padding-top: 10px;
 }
 
 
-/*seccion del horario*/
 
+/* SECCION DEL HORARIO */
 .horario {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -173,7 +224,7 @@
     font-size: 1em;
 }
 
-/*seccion NOSOTROS*/
+/* SECCION NOSOTROS */
 .NOSOTROS {
     background-color: bisque;
     width: 85%;
@@ -182,21 +233,34 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    /* Ajuste para que los elementos se envuelvan en pantallas pequeñas */
 }
 
-.titulos {
+.titulos,
+.mision,
+.vision {
     background-color: aqua;
     border-radius: 10px;
     margin: 5px;
+    flex: 1;
+    max-width: 30%;
+    /* Ajuste del ancho máximo para flexibilidad */
+    box-sizing: border-box;
+    /* Incluye padding y border en el ancho */
 }
 
-.titulos h1 {
+.titulos h1,
+.mision h1,
+.vision h1 {
     text-align: center;
     font-size: 30px;
     font-family: Cinzel;
 }
 
-.titulos p {
+.titulos p,
+.mision p,
+.vision p {
     text-align: justify;
     padding: 10px;
     font-size: 20px;
@@ -204,175 +268,147 @@
 
 .mision {
     background-color: #8B0000;
-    border-radius: 10px;
-    margin: 5px;
 }
 
-.mision h1 {
-    text-align: center;
-    font-size: 30px;
-    font-family: Cinzel;
+.mision h1,
+.vision h1 {
     text-decoration: underline;
-}
-
-.mision p {
-    text-align: justify;
-    padding: 10px;
-    font-size: 20px;
 }
 
 .vision {
     background-color: brown;
-    border-radius: 10px;
-    margin: 5px;
 }
 
-.vision h1 {
-    text-align: center;
-    font-size: 30px;
-    font-family: Cinzel;
-    text-decoration: underline;
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .horario {
+        grid-template-columns: repeat(4, 1fr);
+        /* Ajuste de columnas en pantallas medianas */
+    }
+
+    .NOSOTROS {
+        flex-direction: column;
+        /* Cambia a columna en pantallas medianas */
+        height: auto;
+    }
+
+    .titulos,
+    .mision,
+    .vision {
+        max-width: 80%;
+        /* Ajuste del ancho máximo */
+        margin-bottom: 10px;
+        /* Espacio entre elementos */
+    }
 }
 
-.vision p {
-    text-align: justify;
-    padding: 10px;
-    font-size: 20px;
+@media (max-width: 480px) {
+    .horario {
+        grid-template-columns: repeat(2, 1fr);
+        /* Ajuste de columnas en pantallas pequeñas */
+    }
+
+    .titulos,
+    .mision,
+    .vision {
+        max-width: 100%;
+        /* Ajuste del ancho máximo para pantallas pequeñas */
+    }
 }
 
-/*slider titulo*/
-.titulo-ambiente {
-    font-family: Cinzel;
-    color: crimson;
-    font-size: 50px;
-    text-align: center;
+@media (max-width: 480px) {
+
+    .inicio h1,
+    .inicio h2,
+    .inicio h5 {
+        font-size: 25px;
+        /* Reducción del tamaño de fuente para pantallas pequeñas */
+    }
+
+    .horario {
+        grid-template-columns: repeat(2, 1fr);
+        /* Ajuste de columnas en pantallas pequeñas */
+    }
+
+    .titulos,
+    .mision,
+    .vision {
+        max-width: 100%;
+        /* Ajuste del ancho máximo para pantallas pequeñas */
+    }
 }
 
-/*SLIDER SECCION*/
+/*SECCION DEL SLIDER*/
 .slider {
-    width: 1000px;
-    height: 500px;
+    width: 85vw;
+    height: auto;
+    margin: auto;
     overflow: hidden;
-    border-radius: 10px;
-    position: relative;
 }
 
-.slides {
-    width: 700%;
-    height: 100%;
+.slider .slide-track {
     display: flex;
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 40s linear infinite;
+    width: calc(200px * 14);
 }
 
-.slides input {
-    display: none;
-}
-
-.slide {
-    width: 14.2857%;
-    transition: 2s;
-}
-
-.slide img {
+.slider .slide img {
     width: 100%;
-    height: 100%;
+    height: 250px;
+}
+@keyframes scroll{
+    0%{
+        -webkit--transform:translateX(0);
+        transform:translateX(0);
+    }
+    100%{
+        -webkit--transform:translateX(calc(-200px * 7));
+        transform:translateX(calc(-200px * 7));
+    }
 }
 
-.navigation-manual {
-    position: absolute;
-    width: 100%;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-}
-
-.manual-btn {
-    border: 2px solid #40D3DC;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.manual-btn:not(:last-child) {
-    margin-right: 40px;
-}
-
-.manual-btn:hover {
-    background: #40D3DC;
-}
-
-#radio1:checked~.first {
-    margin-left: 0;
-}
-
-#radio2:checked~.first {
-    margin-left: -14.2857%;
-}
-
-#radio3:checked~.first {
-    margin-left: -28.5714%;
-}
-
-#radio4:checked~.first {
-    margin-left: -42.8571%;
-}
-
-#radio5:checked~.first {
-    margin-left: -57.1429%;
-}
-
-#radio6:checked~.first {
-    margin-left: -71.4286%;
-}
-
-#radio7:checked~.first {
-    margin-left: -85.7143%;
-}
-
-.navigation-auto {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 460px;
-}
-
-.navigation-auto div {
-    border: 2px solid #40D3DC;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
-}
-
-.navigation-auto div:not(:last-child) {
-    margin-right: 40px;
-}
-
-/*seccion 2 MENU DE YESSENIA*/
+/* seccion 2 MENU DE YESSENIA */
 .menu {
     max-width: 85%;
-    margin: 10px;
+    margin: 10px auto;
+    /* Centra el contenido horizontalmente y añade margen */
+    padding: 20px;
+    /* Añade espaciado alrededor del contenido */
+    background-color: bisque;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
 }
 
 .menu h1 {
-    background-color: bisque;
     text-align: center;
-    font-size: 40px;
+    font-size: 2.5rem;
+    /* Tamaño de fuente responsivo */
     font-family: Allanura;
     color: crimson;
+    margin: 0;
+    /* Elimina el margen superior e inferior por defecto */
+    padding: 10px 0;
+    /* Añade espacio alrededor del título */
 }
 
 .menu h2 {
     text-align: center;
-    padding: 5px;
-    font-size: 30px;
+    font-size: 2rem;
+    /* Tamaño de fuente responsivo */
     font-family: tourney;
+    margin-bottom: 20px;
+    /* Espacio inferior */
 }
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Columnas responsivas */
     gap: 1.5em;
+    justify-items: center;
+    /* Centra los elementos en el grid */
 }
 
 .menu-item {
@@ -393,9 +429,7 @@
 .menu-item img {
     width: 100%;
     height: 200px;
-    /* Fijar altura */
     object-fit: cover;
-    /* Recortar para ajustarse al contenedor */
     border-radius: 8px 8px 0 0;
 }
 
@@ -408,51 +442,194 @@
     margin: 0.5em 0;
 }
 
-/*inicio de la seccion CONTACTO*/
+/* Media queries para tamaños de pantalla más pequeños */
+@media (max-width: 768px) {
+    .menu {
+        max-width: 95%;
+        /* Ajusta el ancho máximo */
+        padding: 15px;
+        /* Ajusta el padding */
+    }
 
+    .menu h1 {
+        font-size: 2rem;
+        /* Tamaño de fuente más pequeño */
+    }
+
+    .menu h2 {
+        font-size: 1.8rem;
+        /* Tamaño de fuente más pequeño */
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        /* Cambia a una columna en pantallas más pequeñas */
+        gap: 1em;
+    }
+
+    .menu-item {
+        padding: 1em;
+        /* Ajusta el padding de los items */
+    }
+
+    .menu-item img {
+        height: 150px;
+        /* Ajusta la altura de la imagen */
+    }
+}
+
+
+/* Inicio de la sección CONTACTO */
 .CONTACTO {
     background-color: bisque;
     width: 85%;
-    height: 100vh;
+    min-height: 100vh;
+    /* Usamos min-height en lugar de height para permitir que la sección crezca si es necesario */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    /* Cambiamos a columna para dispositivos móviles */
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    /* Añadimos padding para separar los contenidos de los bordes */
+    margin: 0 auto;
+    /* Centramos horizontalmente */
 }
 
 .izquierda {
-    width: 25%;
+    width: 100%;
+    /* Cambiamos el ancho al 100% para ocupar toda la columna en dispositivos móviles */
+    max-width: 300px;
+    /* Limitamos el ancho máximo para evitar que sea demasiado grande en pantallas grandes */
+    margin-bottom: 20px;
+    /* Espacio entre izquierda y derecha */
 }
 
 .derecha {
-    width: 60%;
+    width: 100%;
+    max-width: 100%;
+    /* Ajustamos el ancho máximo */
 }
 
-
-/*tamaño tipo y color de fuente de los titulos de la seccion 3*/
+/* Tamaño, tipo y color de fuente de los títulos de la sección 3 */
 .CONTACTO h3 {
     font-family: Allanura;
-    font-size: 45px;
+    font-size: 30px;
+    /* Reducimos el tamaño de la fuente para pantallas pequeñas */
     color: crimson;
+    text-align: center;
+    /* Centramos el texto */
+    margin-bottom: 20px;
+    /* Espacio debajo del título */
 }
 
+/* Estilos para las imágenes de redes sociales */
 .redes-sociales a img {
     object-fit: cover;
     height: 50px;
+    margin: 0 10px;
+    /* Espacio entre las imágenes */
 }
 
-/*SECCION DEL FOOTER*/
+/* Media queries para diferentes tamaños de pantalla */
+@media (min-width: 768px) {
+    .CONTACTO {
+        flex-direction: row;
+        /* Volver a la dirección de fila para pantallas más grandes */
+        height: 100vh;
+        /* Restaurar la altura completa */
+    }
+
+    .izquierda {
+        width: 25%;
+        max-width: 25%;
+        /* Restaurar el ancho máximo si es necesario */
+        margin-bottom: 0;
+        /* Eliminar el espacio inferior */
+    }
+
+    .derecha {
+        width: 60%;
+        max-width: 60%;
+        /* Restaurar el ancho máximo si es necesario */
+        margin-left: 20px;
+        /* Espacio entre izquierda y derecha */
+    }
+
+    .CONTACTO h3 {
+        font-size: 45px;
+        /* Restaurar el tamaño de la fuente para pantallas más grandes */
+    }
+}
+
+.mapa {
+    text-align: center;
+    /* Centra el contenido horizontalmente */
+}
+
+.mapa h3 {
+    font-size: 24px;
+    /* Tamaño del título */
+    color: crimson;
+    /* Color del texto */
+    margin-bottom: 10px;
+    /* Espacio inferior */
+}
+
+.mapa-responsive {
+    overflow: hidden;
+    /* Proporción 16:9 (56.25%) */
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.mapa-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+
+
+/* SECCION DEL FOOTER */
 .section-footer {
     background-color: bisque;
-    width: 100%;
     height: 100px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 0 20px;
+    /* Añadimos padding para separar los bordes de los contenidos */
 }
 
 .footer {
-    font-size: 25px;
+    font-size: 20px;
+    /* Reducimos el tamaño de la fuente para pantallas pequeñas */
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan cuando no haya suficiente espacio */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Centramos el texto */
+}
+
+/* Estilos adicionales para los elementos dentro del footer */
+.footer a {
+    margin: 5px;
+    /* Añadimos espacio entre los elementos */
+    text-decoration: none;
+    color: black;
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    .footer {
+        font-size: 16px;
+        /* Ajustamos aún más el tamaño de la fuente para pantallas más pequeñas */
+    }
 }
