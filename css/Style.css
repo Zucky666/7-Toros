@@ -1,5 +1,4 @@
 /* Estilos globales */
-/* Estilos globales */
 * {
     margin: 0;
     padding: 0;
@@ -164,6 +163,7 @@ body {
 }
 
 /* SECCION DE INICIO */
+/* Estilos para la sección de inicio */
 .inicio {
     background: bisque;
     width: 85%;
@@ -191,13 +191,23 @@ body {
     color: black;
 }
 
+@media(max-width: 769px) {
+    .inicio {
+        height: 100%;
+    }
+}
 
+/* Estilos para la sección del horario */
+.horario-container {
+    overflow-x: auto;
+    /* Permite desplazamiento horizontal cuando sea necesario */
+    margin: 20px auto;
+    /* Centra el contenido con espacio alrededor */
+    max-width: 100%;
+    /* Asegura que el horario no sobrepase el ancho máximo */
+}
 
-/* SECCION DEL HORARIO */
 .horario {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
     background-color: #444;
     padding: 20px;
     border-radius: 8px;
@@ -210,6 +220,7 @@ body {
     color: #ffffff;
     padding: 20px;
     border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 .nombre-dia {
@@ -222,6 +233,56 @@ body {
 .horas {
     display: block;
     font-size: 1em;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .horario {
+        display: block;
+        /* Cambia a bloque para pantallas medianas y pequeñas */
+        padding: 10px;
+        /* Reducción del padding para pantallas medianas */
+    }
+
+    .dia {
+        margin-bottom: 5px;
+        /* Reducción del margen entre días en pantallas medianas */
+    }
+
+    .nombre-dia {
+        font-size: 1em;
+        /* Ajuste de tamaño de fuente para pantallas medianas */
+    }
+
+    .horas {
+        font-size: 0.9em;
+        /* Ajuste de tamaño de fuente para horas en pantallas medianas */
+    }
+}
+
+@media (min-width: 769px) {
+    .horario {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .horario {
+        padding: 5px;
+        /* Reducción adicional del padding para pantallas muy pequeñas */
+    }
+
+    .nombre-dia {
+        font-size: 0.8em;
+        /* Ajuste de tamaño de fuente para pantallas muy pequeñas */
+    }
+
+    .horas {
+        font-size: 0.8em;
+        /* Ajuste de tamaño de fuente para horas en pantallas muy pequeñas */
+    }
 }
 
 /* SECCION NOSOTROS */
@@ -314,27 +375,12 @@ body {
         max-width: 100%;
         /* Ajuste del ancho máximo para pantallas pequeñas */
     }
-}
-
-@media (max-width: 480px) {
 
     .inicio h1,
     .inicio h2,
     .inicio h5 {
         font-size: 25px;
         /* Reducción del tamaño de fuente para pantallas pequeñas */
-    }
-
-    .horario {
-        grid-template-columns: repeat(2, 1fr);
-        /* Ajuste de columnas en pantallas pequeñas */
-    }
-
-    .titulos,
-    .mision,
-    .vision {
-        max-width: 100%;
-        /* Ajuste del ancho máximo para pantallas pequeñas */
     }
 }
 
@@ -357,14 +403,16 @@ body {
     width: 100%;
     height: 250px;
 }
-@keyframes scroll{
-    0%{
-        -webkit--transform:translateX(0);
-        transform:translateX(0);
+
+@keyframes scroll {
+    0% {
+        -webkit--transform: translateX(0);
+        transform: translateX(0);
     }
-    100%{
-        -webkit--transform:translateX(calc(-200px * 7));
-        transform:translateX(calc(-200px * 7));
+
+    100% {
+        -webkit--transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-200px * 7));
     }
 }
 
@@ -406,7 +454,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     /* Columnas responsivas */
-    gap: 1.5em;
+    gap: 1em;
     justify-items: center;
     /* Centra los elementos en el grid */
 }
@@ -428,7 +476,7 @@ body {
 
 .menu-item img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px 8px 0 0;
 }
